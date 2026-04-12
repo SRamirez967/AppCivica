@@ -4,165 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intento App Civica</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="./output.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/db703935de.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div id="menubar">
+<body class="font-[Raleway]">
+    <div id="menubar" class="bg-[#06D6A0] flex justify-between p-[0px_60px_0px_16px] sticky top-0 shadow-[0px_10px_20px_#EBEBEB] z-50">
         <!-- Nombre de la aplicación -->
-        <div id="menuTitulo">
-            <button id="bInicio"><i class="fa-solid fa-bars" style="color: rgb(0, 0, 0);"></i></button>
-            <h1> App</h1>
+        <div id="menuTitulo" class="flex items-center space-x-5">
+            <button id="bInicio" class="bg-[#06D6A0] text-white p-2 rounded-sm text-[16px] my-5 cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5]"><i class="fa-solid fa-bars" style="color: rgb(0, 0, 0);"></i></button>
+            <h1 class="text-3xl font-bold">App</h1>
         </div>
 
-        
-        
         <!-- Opciones de usuario -->
-        <div id="useroptions">
+        <div id="useroptions" class="flex space-x-5">
             <div class="dropdown">
                 
-                <button>
+                <button class="bg-[#06D6A0] text-white p-2 rounded-sm text-[16px] my-5 cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5]">
                     <i class="fa-solid fa-circle-user fa-xl" style="color: #ffffff;"></i>
                 </button>
-                <div class="content">
-                    <a>Datos de usuario</a>
-                    <a>Beneficios de viaje</a>
-                    <a>Cambia tu clave</a>
-                    <a>Cerrar sesión</a>
+                <div class="content hidden bg-[#F5F5F5] absolute min-w-25 rounded-sm">
+                    <a class="block py-3 px-2 cursor-pointer hover:bg-[#f5d34c]">Datos de usuario</a>
+                    <a class="block py-3 px-2 cursor-pointer hover:bg-[#f5d34c]">Beneficios de viaje</a>
+                    <a class="block py-3 px-2 cursor-pointer hover:bg-[#f5d34c]">Cambia tu clave</a>
+                    <a class="block py-3 px-2 cursor-pointer hover:bg-[#f5d34c]">Cerrar sesión</a>
                 </div>
             </div>
-            <button>
+            <button class="bg-[#06D6A0] text-white p-2 rounded-sm text-[16px] my-5 cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5]">
                 <i class="fa-solid fa-moon fa-lg" style="color: #ffffff;"></i>
             </button>
         </div>
         
     </div>
 
-    <div id="main">
-        <div id="sidebar">
-            <!-- Buttons on the sidebar -->
-             <div id="bsideCont" class="sideB">
-                <button class="bside"><i class="fa-solid fa-circle-dollar-to-slot fa-xl" style="color: #000000;"></i> Recargar CivicaPay</button>
-                <button class="bside"><i class="fa-solid fa-hand-holding-dollar fa-xl" style="color: #000000;"></i> Pasar plata</button>
-                <button class="bside"><i class="fa-solid fa-money-bills fa-xl" style="color: #000000;"></i> Hacer pagos</button>
-                <button class="bside"><i class="fa-solid fa-mobile-screen-button fa-xl" style="color: #000000;"></i> Recargar celular</button>
-                <button class="bside"><i class="fa-solid fa-money-bill-transfer fa-xl" style="color: #000000;"></i> Sacar plata</button>
+    <div id="main" class="flex relative">
+        <div id="sidebar" class="w-[20%] h-140.25 bg-[#F5F5F5] flex flex-col justify-between sticky top-[79.875px] z-50">
+            <!-- Buttons on the sidebar --> 
+             <div id="bsideCont" class="sideB flex flex-col">
+                <button class="bg-[#F5F5F5] text-black text-left p-4 cursor-pointer hover:bg-[#f5d34c] active:bg-white">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-circle-dollar-to-slot fa-xl" style="color: #000000;"></i>
+                        <p>Recargar CivicaPay</p>
+                    </div>
+                </button>
+                <button class="bg-[#F5F5F5] text-black text-left p-4 cursor-pointer hover:bg-[#f5d34c] active:bg-white">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-hand-holding-dollar fa-xl" style="color: #000000;"></i>
+                        <p>Pasar plata</p>
+
+                    </div>
+                </button>
+                <button class="bg-[#F5F5F5] text-black text-left p-4 cursor-pointer hover:bg-[#f5d34c] active:bg-white">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-money-bills fa-xl" style="color: #000000;"></i>
+                        <p>Hacer pagos</p>
+                    </div>
+                </button>
+                <button class="bg-[#F5F5F5] text-black text-left p-4 cursor-pointer hover:bg-[#f5d34c] active:bg-white">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-mobile-screen-button fa-xl" style="color: #000000;"></i>
+                        <p>Recargar celular</p>
+                    </div>
+                </button>
+                <button class="bg-[#F5F5F5] text-black text-left p-4 cursor-pointer hover:bg-[#f5d34c] active:bg-white">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-money-bill-transfer fa-xl" style="color: #000000;"></i>
+                        <p>Sacar plata</p>
+                    </div>
+                </button>
              </div>
-             <div id="sideOptions" class="sideB">
-                <button class="boptions"><i class="fa-solid fa-gear fa-xl" style="color: rgb(255, 255, 255);"></i></button>
-                <button class="boptions"><i class="fa-regular fa-circle-question fa-xl" style="color: rgb(255, 255, 255);"></i></button>
+             <div id="sideOptions" class="sideB bg-[#06D6A0] py-3 px-2">
+                <button class="boptions bg-[#06D6A0] p-3 rounded-sm cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5]"><i class="fa-solid fa-gear fa-xl" style="color: rgb(255, 255, 255);"></i></button>
+                <button class="boptions bg-[#06D6A0] p-3 rounded-sm cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5]"><i class="fa-regular fa-circle-question fa-xl" style="color: rgb(255, 255, 255);"></i></button>
              </div>
         </div>
-        <div id="info">
-            <h1>Bienvenido de nuevo, [User]!</h1>
-            <div id="top">
-                <div id="tleft">
-                    <div id="saldoTitulo">
+        <div id="info" class="w-[80%] relative z-25">
+            <h1 class="m-5 text-4xl">Bienvenido de nuevo, [User]!</h1>
+
+            <!-- La informacion como tal -->
+
+            <div id="top" class="flex justify-between">
+                <div id="tleft" class="shadow-[10px_10px_50px_#F5F5F5] text-white rounded-xl m-5 h-85 w-[70%] bg-[url(/imgs/cityBG4.avif)] bg-no-repeat bg-cover">
+                    <div id="saldoTitulo" class="flex justify-between items-baseline m-5">
                         <p>Tu saldo targeta cívica</p>
-                        <button><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> Recargar</button>
+                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> Recargar</button>
                     </div>
-                    <p id="saldo">$15,770</p>
-                    <div id="adicional">
+                    <label id="saldo" class="font-bold font-[Raleway] text-4xl mx-5">$0</label>
+                    <div id="adicional" class="flex justify-between m-[100px_20px_0px_20px]">
                         <div>
                             <p>Perfil</p>
-                            <p class="data1">FRECUENTES</p>
+                            <p class="font-bold">FRECUENTES</p>
                         </div>
                         <div>
                             <p>No. tarjeta</p>
-                            <p class="data1">12394832</p>
+                            <p class="font-bold">12394832</p>
                         </div> 
                     </div>
                 </div>
-                <div id="tright">
-                    <h2>Operaciones</h2>
-                    <button><i class="fa-solid fa-train" style="color: rgb(255, 255, 255);"></i> Viajar con QR</button>
-                    <button><i class="fa-solid fa-qrcode" style="color: rgb(255, 255, 255);"></i> Pagar con QR</button>
-                    <div id="ubicaciones">
-                        <p><i class="fa-solid fa-map-location" style="color: rgb(0, 0, 0);"></i> Planea tu ruta:</p>
+                <div id="tright" class="w-[30%] flex flex-col">
+                    <h2 class="text-xl">Operaciones</h2>
+                    <button class="bg-[#06D6A0] text-[16px] p-4 text-left text-white cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-train" style="color: rgb(255, 255, 255);"></i> 
+                            <p>Viajar con QR</p>
+                        </div>
+                    </button>
+                    <button class="bg-[#06D6A0] text-[16px] p-4 text-left text-white cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-qrcode" style="color: rgb(255, 255, 255);"></i>
+                            <p>Pagar con QR</p> 
+                        </div>
+                    </button>
+                    <div id="ubicaciones" class="flex justify-between items-baseline p-4">
+                        <p><i class="fa-solid fa-map-location" style="color: rgb(0, 0, 0);"></i> Planea:</p>
                         <!-- Agregamos un form que será la barra de búsqueda de ubicaciones -->
                         <form>
-                            <input type="text" placeholder="🔍 Buscar ubicaciones...">
+                            <input type="text" placeholder="🔍 Buscar ubicaciones..." class="border border-mauve-600 rounded-sm text-sm">
                         </form>
                     </div>
                     <img src="/imgs/mapa.jpg" title="Elige tu ubicación" alt="Mapa metro" height="150px" width="150px">
                 </div>
             </div>
-            <div id="bottom">
-                <div id="bleft">
-                    <div id="movTitulo">
-                        <h2>Movimientos</h2>
-                        <button><i class="fa-solid fa-eye" style="color: #06D6A0;"></i> Ver todos</button>
+            <div id="bottom" class="flex justify-between">
+                <div id="bleft" class="w-[70%] m-5 space-y-2">
+                    <div id="movTitulo" class="flex justify-between items-center">
+                        <h2 class="text-xl">Movimientos</h2>
+                        <button class="border-2 border-[#06D6A0] bg-white text-[#06D6A0] rounded-sm text-[14px] my-3 px-3 py-2 cursor-pointer hover:bg-[#06D6A0] hover:border-white hover:text-white active:bg-[#F5F5F5] active:text-black"><i class="fa-solid fa-eye" style="color: #06D6A0;"></i> Ver todos</button>
                     </div>
 
                     <hr>
                     
-                    <div class="movimientos">
-                        <div class="movArriba">
+                    <div class="p-3 rounded-sm">
+                        <div class="font-bold mb-1 flex justify-between">
                             <p>San Antonio - Metro</p>
                             <p>-$0</p>
                         </div>
-                        <div class="movAbajo">
+                        <div class="text-xs text-[#5C5C5C] flex justify-between">
                             <p>12/03/2026 05:15:22 AM</p>
-                            <div id="movDetalles">
+                            <div id="movDetalles" class="text-right">
                                 <p>Saldo: $13.600</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="movimientos">
-                        <div class="movArriba">
+                    <div class="p-3 rounded-sm">
+                        <div class="font-bold mb-1 flex justify-between">
                             <p>Oriente - Tranvía</p>
                             <p>-$3.820</p>
                         </div>
-                        <div class="movAbajo">
+                        <div class="text-xs text-[#5C5C5C] flex justify-between">
                             <p>12/03/2026 05:15:22 AM</p>
-                            <div id="movDetalles">
+                            <div id="movDetalles" class="text-right">
                                 <p>Saldo: $13.600</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="movimientos">
-                        <div class="movArriba">
+                    <div class="p-3 rounded-sm">
+                        <div class="font-bold mb-1 flex justify-between">
                             <p>Oriente - Máquina recarga</p>
                             <p>+$20.000</p>
                         </div>
-                        <div class="movAbajo">
+                        <div class="text-xs text-[#5C5C5C] flex justify-between">
                             <p>12/03/2026 05:15:22 AM</p>
-                            <div id="movDetalles">
+                            <div id="movDetalles" class="text-right">
                                 <p>Saldo: $17.420</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="movimientos">
-                        <div class="movArriba">
+                    <div class="p-3 rounded-sm">
+                        <div class="font-bold mb-1 flex justify-between">
                             <p>San Antonio - Tranvía</p>
                             <p>-$3.820</p>
                         </div>
-                        <div class="movAbajo">
+                        <div class="text-xs text-[#5C5C5C] flex justify-between">
                             <p>12/03/2026 05:15:22 AM</p>
-                            <div id="movDetalles">
+                            <div id="movDetalles" class="text-right">
                                 <p style="background-color: #fc6c67; padding: 2px;border-radius: 5px;color: #ffffff;">Saldo: -$2.580</p>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <div id="bright">
-                    <h2>Más servicios</h2>
-                    <button><i class="fa-solid fa-shop" style="color: rgb(255, 255, 255);"></i> Tienda virtual</button>
-                    <button><i class="fa-solid fa-bus-side" style="color: rgb(255, 255, 255);"></i> Movilidad</button>
-                    <button><i class="fa-solid fa-plane-arrival" style="color: rgb(255, 255, 255);"></i> Turismo</button>
-                    <button><i class="fa-brands fa-cash-app" style="color: rgb(255, 255, 255);"></i> Oferta financiera</button>
-                    <button id="bloqueo"><i class="fa-solid fa-lock" style="color: #ffffff;"></i> Bloquear tarjeta cívica</button>
+                <div id="bright" class="w-[30%] my-5 rounded-sm flex flex-col">
+                    <h2 class="text-xl">Más servicios</h2>
+                    <button class="bg-[#06D6A0] text-white text-[16px] p-4 text-left cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-shop" style="color: rgb(255, 255, 255);"></i> 
+                            <p>Tienda virtual</p>
+                        </div>
+                    </button>
+                    <button class="bg-[#06D6A0] text-white text-[16px] p-4 text-left cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-bus-side" style="color: rgb(255, 255, 255);"></i> 
+                            <p>Movilidad</p>
+                        </div>
+                    </button>
+                    <button class="bg-[#06D6A0] text-white text-[16px] p-4 text-left cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-plane-arrival" style="color: rgb(255, 255, 255);"></i> 
+                            <p>Turismo</p>
+                        </div>
+                    </button>
+                    <button class="bg-[#06D6A0] text-white text-[16px] p-4 text-left cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-brands fa-cash-app" style="color: rgb(255, 255, 255);"></i> 
+                            <p>Oferta financiera</p>
+                        </div>
+                    </button>
+                    <button id="bloqueo" class="bg-[#06D6A0] text-white text-[16px] p-4 text-left cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-lock" style="color: #ffffff;"></i> 
+                            <p>Bloquear tarjeta cívica</p>
+                        </div>
+                    </button>
                 </div>
             </div>
-            <div id="ads">
+            <div id="ads" class="flex my-18 space-x-1 mx-5 overflow-x-scroll">
                 <img src="/imgs/metrooFondo.jpg">
                 <img src="/imgs/metrooFondo.jpg">
                 <img src="/imgs/metrooFondo.jpg">
@@ -172,71 +234,109 @@
                 <img src="/imgs/metrooFondo.jpg">
                 <img src="/imgs/metrooFondo.jpg">
             </div>
-            <div id="lugaresCercanos">
+            <div id="lugaresCercanos" class="mx-5">
                 <h2>Lugares Cercanos</h2>
-                <div id="sugerencias">
-                    <div class="lugar">
+                <div id="sugerencias" class="flex justify-center mb-18 space-x-5">
+                    <div class="size-20 rounded-sm flex flex-col justify-center items-center space-y-4 cursor-pointer hover:bg-[#f5d34c]">
                         <i class="fa-solid fa-cubes fa-xl" style="color: rgb(0, 0, 0);"></i>
                         <p>Todos</p>
                     </div>
-                    <div class="lugar">
+                    <div class="size-20 rounded-sm flex flex-col justify-center items-center space-y-4 cursor-pointer hover:bg-[#f5d34c]">
                         <i class="fa-solid fa-bag-shopping fa-xl" style="color: rgb(0, 0, 0);"></i>
                         <p>Comercio</p>
                     </div>
-                    <div class="lugar">
+                    <div class="size-20 rounded-sm flex flex-col justify-center items-center space-y-4 cursor-pointer hover:bg-[#f5d34c]">
                         <i class="fa-solid fa-house-chimney-medical fa-xl" style="color: rgb(0, 0, 0);"></i>
                         <p>Salud</p>
                     </div>
-                    <div class="lugar">
+                    <div class="size-20 rounded-sm flex flex-col justify-center items-center space-y-4 cursor-pointer hover:bg-[#f5d34c]">
                         <i class="fa-solid fa-champagne-glasses fa-xl" style="color: rgb(0, 0, 0);"></i>
                         <p>Diversión</p>
                     </div>
-                    <div class="lugar">
+                    <div class="size-20 rounded-sm flex flex-col justify-center items-center space-y-4 cursor-pointer hover:bg-[#f5d34c]">
                         <i class="fa-solid fa-signs-post fa-xl" style="color: rgb(0, 0, 0);"></i>
                         <p>Turismo</p>
                     </div>
-                    <div class="lugar">
+                    <div class="size-20 rounded-sm flex flex-col justify-center items-center space-y-4 cursor-pointer hover:bg-[#f5d34c]">
                         <i class="fa-solid fa-car-side fa-xl" style="color: rgb(0, 0, 0);"></i>
                         <p>Transporte</p>
                     </div>
                 </div>
             </div>
 
-            <div id="footer">
-        <div id="redes">
-            <h3>Nuestras redes</h3>
-            <i class="fa-brands fa-youtube fa-xl" style="color: rgb(255, 255, 255);"></i>
-            <i class="fa-brands fa-instagram fa-xl" style="color: rgb(255, 255, 255);"></i>
-            <i class="fa-brands fa-facebook fa-xl" style="color: rgb(255, 255, 255);"></i>
-            <i class="fa-brands fa-x-twitter fa-xl" style="color: rgb(255, 255, 255);"></i>
+            <div id="footer" class="bg-[#06D6A0] flex flex-col items-center">
+                <div id="redes" class="text-center space-y-5 my-5">
+                    <h3>Nuestras redes</h3>
+                    <div class="space-x-10">
+                        <i class="fa-brands fa-youtube fa-xl" style="color: rgb(255, 255, 255);"></i>
+                        <i class="fa-brands fa-instagram fa-xl" style="color: rgb(255, 255, 255);"></i>
+                        <i class="fa-brands fa-facebook fa-xl" style="color: rgb(255, 255, 255);"></i>
+                        <i class="fa-brands fa-x-twitter fa-xl" style="color: rgb(255, 255, 255);"></i>
+                    </div>
+                </div>
+        
+                <div id="linea" class="flex flex-col items-center my-10">
+                    <img src="/imgs/holaMetro.webp" alt="Linea de atención Hola Metro">
+                    <h3>60(4) 4449598</h3>
+                </div>
+
+                <div id="fGeneral" class="flex flex-col items-center mb-10 text-xs space-y-3">
+                    <img src="/imgs/logoMetro.webp" alt="Logo Metro de Medellín">
+                    <div class="text-center">
+                        <p>Calle 44 46-001, Bello-Antioquia-Colombia-Suramérica.</p>
+                        <p>A.A. 9128 Medellín</p>
+                    </div> 
+                </div>
+
+                <div id="extras" class="text-[10px] text-white">
+                    <p>Todos los derechos reservados. Recomendamos usar una resolución de pantalla de 1024 x 768. Para mayor compatibilidad, utilizar microsoft Edge, Google Chrome o Mozilla Firefox</p>
+                    <p>Última conexión: [DD/MM/AAAA] [HH:MM:SS] AM/PM</p>
+                    <p>Versión: 3.0.64</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Ventana para recargar civica -->
+        <div id="fondoventanaRecarga" class="w-full h-full bg-[#0000004d] fixed top-0 left-0 z-100 flex justify-center items-center">
+            <div id="ventanaRecarga" class="bg-white h-120 w-100 flex flex-col justify-center space-y-10 rounded-2xl shadow-lg z-50 p-4">
+                <p id="advertenciaRecarga" class="text-red-600"></p>
+
+                <div class="flex flex-col space-y-2">
+                    <label>Tipo de documento</label>
+                    <select id="tipoDocumento" class="rounded-sm border-2">
+                        <option value="">--</option>
+                        <option value="cedulaC">Cédula de ciudadanía</option>
+                        <option value="cedulaE">Cédula extranjera</option>
+                        <option value="tarjetaI">Tarjeta de identidad</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <label>Número de documento</label>
+                    <input id="numeroDocumento" type="number" class="rounded-sm border-2">
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <label>Valor a recargar ($100 - $100.000)</label>
+                    <div class="flex space-x-2">
+                        <p>$</p>
+                        <input id="valorRecarga" type="number" class="rounded-sm border-2 w-full">
+                    </div>
+                    
+                </div>
+
+                <div class="space-x-3 flex justify-center">
+                    <button onclick="quitarVentana()" class="bg-[#f36236] px-3 py-2 rounded-sm cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">Cancelar</button>
+                    <button onclick="realizarRecarga(quitarVentana)" class="bg-[#06D6A0] px-3 py-2 rounded-sm cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">Recargar</button>
+                </div>
+
+            </div>
         </div>
         
-        <div id="linea">
-            <img src="/imgs/holaMetro.webp" alt="Linea de atención Hola Metro">
-            <h3>60(4) 4449598</h3>
-        </div>
-
-        <div id="fGeneral">
-            <img src="/imgs/logoMetro.webp" alt="Logo Metro de Medellín">
-            <p>Calle 44 46-001, Bello-Antioquia-Colombia-Suramérica.</p>
-            <p>A.A. 9128 Medellín</p>
-        </div>
-
-        
-
     </div>
 
-    <div id="extras">
-        <p>Todos los derechos reservados. Recomendamos usar una resolución de pantalla de 1024 x 768. Para mayor compatibilidad, utilizar microsoft Edge, Google Chrome o Mozilla Firefox</p>
-        <p>Última conexión: [DD/MM/AAAA] [HH:MM:SS] AM/PM</p>
-        <p>Versión: 3.0.64</p>
-    </div>
-
-        </div>
-        
-    </div>
-
-    
     <script src="index.js"></script>
 </body>
 </html>
