@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro App Cívica</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="border-2 border-amber-500 h-screen flex justify-center items-center space-x-8">
+    <div class="border-2 border-green-500 px-20 py-12 bg-amber-200">
+        <div class="border-2 border-blue-400">
+            <button id="ventanaRegistrarse">Registrate</button>
+            <button id="ventanaIngresar" class="bg-blue-400">Ingresar</button>
+        </div>
+        <div class="flex">
+            <form id="registro" class="space-y-3">
+                <div class="flex flex-col">
+                    <label>Nombre completo</label>
+                    <input type="text" class="border-2 rounded-sm">
+                </div>
+
+                <div class="flex flex-col">
+                    <label>Tipo de documento</label>
+                    <select id="tipoDocumento" class="border-2 rounded-sm">
+                        <option value="">Seleccionar documento</option>
+                        <option value="cedulaC">Cédula de ciudadanía</option>
+                        <option value="cedulaE">Cédula extranjera</option>
+                        <option value="tarjetaI">Tarjeta de identidad</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col">
+                    <label>Número de documento</label>
+                    <input type="number" class="border-2 rounded-sm">
+                </div>
+
+                <div class="flex flex-col">
+                    <label>Correo electrónico</label>
+                    <input type="email" class="border-2 rounded-sm">
+                </div>
+
+                <!-- Podemos pedir primero que se registre el correo con un coódigo -->
+                <div class="flex flex-col">
+                    <label>Crea una clave</label>
+                    <input type="password" class="border-2 rounded-sm">
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="bg-[#06D6A0] px-3 py-2 rounded-md">Registarse</button>
+                </div>
+
+            </form>
+        
+            <form id="ingreso" class="space-y-3 hidden">
+                <div class="flex flex-col">
+                    <label>Tipo de documento</label>
+                    <select id="tipoDocumento" class="border-2 rounded-sm">
+                        <option value="">Seleccionar documento</option>
+                        <option value="cedulaC">Cédula de ciudadanía</option>
+                        <option value="cedulaE">Cédula extranjera</option>
+                        <option value="tarjetaI">Tarjeta de identidad</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col">
+                    <label>Número de documento</label>
+                    <input type="number" class="border-2 rounded-sm">
+                </div>
+
+                <div class="flex flex-col">
+                    <label>Ingresa tu clave</label>
+                    <input type="password" class="border-2 rounded-sm">
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="bg-[#06D6A0] px-3 py-2 rounded-md">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="registro.js"></script>
+</body>
+</html>
