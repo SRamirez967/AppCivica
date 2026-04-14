@@ -6,12 +6,13 @@
     <title>Registro App Cívica</title>
     <link href="./output.css" rel="stylesheet">
 </head>
-<body class="border-2 border-amber-500 h-screen flex justify-center items-center space-x-8">
-    <div class="border-2 border-green-500 px-20 py-12 bg-amber-200">
-        <div class="border-2 border-blue-400">
-            <button id="ventanaRegistrarse">Registrate</button>
-            <button id="ventanaIngresar" class="bg-blue-400">Ingresar</button>
-        </div>
+<body class="border-2 border-amber-500 h-screen flex flex-col justify-center items-center space-x-8">
+    <div>
+        <button id="ventanaRegistrarse" class="px-3 py-2 border-b-2 border-[#06D6A0]">Registrate</button>
+        <button id="ventanaIngresar" class="px-3 py-2">Ingresar</button>
+    </div>
+    <div class="px-24 py-16 shadow-lg w-95 h-122">
+        
         <div class="flex">
             <form id="registro" class="space-y-3">
                 <div class="flex flex-col">
@@ -46,7 +47,7 @@
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="bg-[#06D6A0] px-3 py-2 rounded-md">Registarse</button>
+                    <button type="submit" class="bg-[#06D6A0] px-3 py-2 rounded-md"><a href="/index.html">Registarse</a></button>
                 </div>
 
             </form>
