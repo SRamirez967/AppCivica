@@ -40,3 +40,15 @@ function realizarRecarga(callback) {
 
 }
 
+// Aquí vamos a comenzar a crear los usuarios a partir de una clase.
+
+class Usuario {
+
+    constructor(nombre, tipoDocumento, numeroDocumento, correo) {
+        this.nombre = nombre;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+        this.correo = correo;
+    }
+}
+

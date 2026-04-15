@@ -7,8 +7,12 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
     --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-green-300: oklch(87.1% 0.15 154.449);
+    --color-green-600: oklch(62.7% 0.194 149.214);
+    --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-mauve-600: oklch(43.5% 0.029 321.78);
     --color-mist-200: oklch(92.5% 0.005 214.3);
     --color-mist-300: oklch(87.2% 0.007 219.6);
@@ -438,6 +442,12 @@
   .border-amber-500 {
     border-color: var(--color-amber-500);
   }
+  .border-green-300 {
+    border-color: var(--color-green-300);
+  }
+  .border-green-600 {
+    border-color: var(--color-green-600);
+  }
   .border-mauve-600 {
     border-color: var(--color-mauve-600);
   }
@@ -455,6 +465,9 @@
   }
   .bg-\[\#f36236\] {
     background-color: #f36236;
+  }
+  .bg-red-500 {
+    background-color: var(--color-red-500);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -612,6 +625,22 @@
       }
     }
   }
+  .hover\:shadow-\[0px_0px_0px_\#f5d34c\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 0px 0px 0px var(--tw-shadow-color, #f5d34c);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[0px_0px_20px_\#f5d34c\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 0px 0px 20px var(--tw-shadow-color, #f5d34c);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
   .active\:bg-\[\#F5F5F5\] {
     &:active {
       background-color: #F5F5F5;
@@ -627,6 +656,33 @@
       color: var(--color-black);
     }
   }
+  .dark\:border-2 {
+    &:where(.dark, .dark *) {
+      border-style: var(--tw-border-style);
+      border-width: 2px;
+    }
+  }
+  .dark\:border-b-2 {
+    &:where(.dark, .dark *) {
+      border-bottom-style: var(--tw-border-style);
+      border-bottom-width: 2px;
+    }
+  }
+  .dark\:border-\[\#048B67\] {
+    &:where(.dark, .dark *) {
+      border-color: #048B67;
+    }
+  }
+  .dark\:border-b-\[\#048B67\] {
+    &:where(.dark, .dark *) {
+      border-bottom-color: #048B67;
+    }
+  }
+  .dark\:bg-\[\#048B67\] {
+    &:where(.dark, .dark *) {
+      background-color: #048B67;
+    }
+  }
   .dark\:bg-\[\#037758\] {
     &:where(.dark, .dark *) {
       background-color: #037758;
@@ -637,9 +693,29 @@
       background-color: #121212;
     }
   }
-  .dark\:bg-black {
+  .dark\:bg-\[hsl\(0\,0\%\,10\%\)\] {
     &:where(.dark, .dark *) {
-      background-color: var(--color-black);
+      background-color: hsl(0,0%,10%);
+    }
+  }
+  .dark\:bg-\[hsl\(0\,0\%\,12\%\)\] {
+    &:where(.dark, .dark *) {
+      background-color: hsl(0,0%,12%);
+    }
+  }
+  .dark\:bg-\[hsl\(0\,0\%\,16\%\)\] {
+    &:where(.dark, .dark *) {
+      background-color: hsl(0,0%,16%);
+    }
+  }
+  .dark\:bg-\[hsl\(0\,0\%\,17\%\)\] {
+    &:where(.dark, .dark *) {
+      background-color: hsl(0,0%,17%);
+    }
+  }
+  .dark\:bg-\[hsla\(164\,94\%\,28\%\,0\)\] {
+    &:where(.dark, .dark *) {
+      background-color: hsla(164,94%,28%,0);
     }
   }
   .dark\:text-mist-200 {
@@ -652,15 +728,44 @@
       color: var(--color-mist-300);
     }
   }
+  .dark\:text-red-600 {
+    &:where(.dark, .dark *) {
+      color: var(--color-red-600);
+    }
+  }
   .dark\:text-white {
     &:where(.dark, .dark *) {
       color: var(--color-white);
+    }
+  }
+  .dark\:shadow-\[0px_0px_20px_\#048B67\] {
+    &:where(.dark, .dark *) {
+      --tw-shadow: 0px 0px 20px var(--tw-shadow-color, #048B67);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
   .dark\:shadow-none {
     &:where(.dark, .dark *) {
       --tw-shadow: 0 0 #0000;
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .dark\:hover\:bg-blue-600 {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-blue-600);
+        }
+      }
+    }
+  }
+  .dark\:hover\:text-\[\#121212\] {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          color: #121212;
+        }
+      }
     }
   }
 }
