@@ -45,7 +45,9 @@
         <div id="sidebar" class="w-[20%] h-140.25 bg-[#F5F5F5] flex flex-col justify-between sticky top-[79.875px] z-50 dark:bg-[hsl(0,0%,10%)] dark:text-white">
             <!-- Buttons on the sidebar --> 
              <div id="bsideCont" class="sideB flex flex-col">
-                <button class="bg-[#F5F5F5] text-black text-left p-4 cursor-pointer hover:bg-[#f5d34c] active:bg-white dark:bg-[hsl(0,0%,10%)] dark:text-white">
+                <p>Saldo CivicaPay:</p>
+                <p id="saldoCivicaPay">$0</p>
+                <button onclick="mostrarVentanaCivicaPay()" class="bg-[#F5F5F5] text-black text-left p-4 cursor-pointer hover:bg-[#f5d34c] active:bg-white dark:bg-[hsl(0,0%,10%)] dark:text-white">
                     <div class="flex items-center space-x-3">
                         <i class="fa-solid fa-circle-dollar-to-slot fa-xl text-black dark:text-white"></i>
                         <p>Recargar CivicaPay</p>
@@ -331,6 +333,59 @@
                 <div class="space-x-3 flex justify-center">
                     <button onclick="quitarVentana()" class="bg-[#f36236] px-3 py-2 rounded-sm cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">Cancelar</button>
                     <button onclick="realizarRecarga(quitarVentana)" class="bg-[#06D6A0] px-3 py-2 rounded-sm cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">Recargar</button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Ventana para recargar CivicaPay -->
+        <div id="fondoCivicaPay" class="w-full h-full bg-[#0000004d] fixed top-0 left-0 z-100 flex justify-center items-center hidden">
+            <div id="ventanaRecargaCPay" class="bg-white flex flex-col justify-center space-y-10 rounded-2xl shadow-lg z-50 p-4 dark:bg-[hsl(0,0%,16%)]">
+                <p id="advertenciaCivPay" class="text-red-600"></p>
+
+                <div class="flex flex-col space-y-2">
+                    <label>¿A qué número harás la recarga?</label>
+                    <input id="numeroCivPay" type="number" class="rounded-sm border-2">
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <label>Confirma el número</label>
+                    <input id="confirmacionNumeroCivPay" type="number" class="rounded-sm border-2">
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <label>Valor a recargar ($100 - $100.000)</label>
+                    <div class="flex space-x-2">
+                        <p>$</p>
+                        <input id="valorRecargaCivPay" type="number" class="rounded-sm border-2 w-full">
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <label>¿Desde qué banco harás la recarga?</label>
+                    <select id="bancoCivPay" class="rounded-sm border-2">
+                        <option value="">--</option>
+                        <option value="cedulaC">BANCO AV VILLAS</option>
+                        <option value="cedulaE">BANCO CAJA SOCIAL</option>
+                        <option value="tarjetaI">BANCO DAVIVIENDA</option>
+                        <option value="tarjetaI">BANCO DE BOGOTA</option>
+                        <option value="tarjetaI">NEQUI</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <label>Ingresa tu correo registrado en PSE</label>
+                    <input id="correoPSE" type="email" class="rounded-sm border-2">
+                </div>
+
+                <div class="flex space-x-2">
+                    <input id="autorizacionDatos" type="checkbox" class="rounded-sm border-2">
+                    <label>Autorizo el tratamiento de datos...</label>
+                </div>
+
+                <div class="space-x-3 flex justify-center">
+                    <button onclick="quitarVentanaCivicaPay()" class="bg-[#f36236] px-3 py-2 rounded-sm cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">Cancelar</button>
+                    <button onclick="recargarCivicaPay(quitarVentanaCivicaPay)" class="bg-[#06D6A0] px-3 py-2 rounded-sm cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black">Continuar</button>
                 </div>
 
             </div>

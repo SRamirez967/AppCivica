@@ -48,6 +48,57 @@ function toggleSidebar() {
     sidebar.classList.toggle("hidden");
 }
 
+// Funciones para realizar recargas civicaPay
+function mostrarVentanaCivicaPay() {
+    const fondoCivicaPay = document.getElementById("fondoCivicaPay");
+    fondoCivicaPay.classList.remove("hidden");
+}
+
+function quitarVentanaCivicaPay() {
+    const fondoCivicaPay = document.getElementById("fondoCivicaPay");
+    fondoCivicaPay.classList.add("hidden");
+
+    const advertenciaCivPay = document.getElementById("advertenciaCivPay");
+    const numeroCivPay = document.getElementById("numeroCivPay");
+    const confirmacionNumeroCivPay = document.getElementById("confirmacionNumeroCivPay");
+    const valorRecargaCivPay = document.getElementById("valorRecargaCivPay");
+    const bancoCivPay = document.getElementById("bancoCivPay");
+    const correoPSE = document.getElementById("correoPSE");
+    const autorizacionDatos = document.getElementById("autorizacionDatos");
+
+    advertenciaCivPay.textContent = "";
+    numeroCivPay.value = "";
+    confirmacionNumeroCivPay.value = "";
+    valorRecargaCivPay.value = "";
+    bancoCivPay.selectedIndex = 0;
+    correoPSE.value = "";
+    autorizacionDatos.checked = false;
+
+}
+
+function recargarCivicaPay(callback) {
+    const advertenciaCivPay = document.getElementById("advertenciaCivPay");
+    const numeroCivPay = document.getElementById("numeroCivPay").value;
+    const confirmacionNumeroCivPay = document.getElementById("confirmacionNumeroCivPay").value;
+    const valorRecargaCivPay = Number(document.getElementById("valorRecargaCivPay").value);
+    const bancoCivPay = document.getElementById("bancoCivPay").value;
+    const correoPSE = document.getElementById("correoPSE").value;
+    const autorizacionDatos = document.getElementById("autorizacionDatos").checked;
+    
+    let saldo = Number(document.getElementById("saldoCivicaPay").textContent.slice(1));
+    let saldoCivPay = document.getElementById("saldoCivicaPay");
+    
+    if (numeroCivPay === "" || confirmacionNumeroCivPay === "" || valorRecargaCivPay === "" || bancoCivPay === "" || correoPSE === "" || autorizacionDatos === false) {
+        advertenciaCivPay.textContent = "Debe rellenar todos los campos!";
+    } else if (valorRecargaCivPay <= 100 || valorRecargaCivPay > 100000) {
+        advertenciaCivPay.textContent = "Debe ingresar un valor válido!";
+    } else {
+        saldoCivPay.textContent = `$${saldo + valorRecargaCivPay}`;
+        callback()
+    }
+
+}
+
 // Aquí vamos a comenzar a crear los usuarios a partir de una clase.
 let listaUsuarios = [];
 
@@ -80,6 +131,7 @@ class Usuario {
     }
 }
 
+/*
 const nombre = window.prompt("Ingrese su nombre:");
 const tipoDocumento = window.prompt("Ingrese su tipo de documento:");
 const numeroDocumento = window.prompt("Ingrese su numero de documento:");
@@ -90,4 +142,6 @@ const user1 = new Usuario(nombre, tipoDocumento, numeroDocumento, correo, clave)
 
 const bienvenida = document.getElementById("bienvenida");
 bienvenida.textContent = `Bienvenido de nuevo, ${user1.nombre}!`
+*/
+
 
