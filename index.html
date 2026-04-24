@@ -11,17 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/db703935de.js" crossorigin="anonymous"></script>
 </head>
-<body class="font-[Raleway] dark:bg-[#121212] dark:text-white">
+<body class="font-[Inter] dark:bg-[#121212] dark:text-white">
     <!-- Antes -->
     <div id="menubar" class="bg-[#06D6A0] dark:shadow-none flex justify-between p-[0px_60px_0px_16px] sticky top-0 shadow-[0px_10px_20px_#EBEBEB] z-50 dark:bg-[#048B67]">
         <!-- Nombre de la aplicación -->
         <div id="menuTitulo" class="flex items-center space-x-5">
             <button id="bInicio" onclick="toggleSidebar()" class="bg-[#06D6A0] text-white p-2 rounded-sm text-[16px] my-5 cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] dark:bg-[#048B67]"><i class="fa-solid fa-bars" style="color: rgb(255, 255, 255);"></i></button>
-            <h1 class="text-3xl text-white font-bold">App</h1>
+            <h1 class="text-3xl text-white font-bold">App | Cívica</h1>
         </div>
 
         <!-- Opciones de usuario -->
         <div id="useroptions" class="flex space-x-5">
+            <button onclick="document.body.classList.toggle('dark')" class="bg-[#06D6A0] text-white p-2 rounded-sm text-[16px] my-5 cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] dark:bg-[#048B67]">
+                <i class="fa-solid fa-moon fa-lg" style="color: #ffffff;"></i>
+            </button>
             <div class="dropdown">
                 
                 <button class="bg-[#06D6A0] text-white p-2 rounded-sm text-[16px] my-5 cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] dark:bg-[#048B67]">
@@ -34,16 +37,15 @@
                     <a class="block py-3 px-2 cursor-pointer hover:bg-[#f5d34c]">Cerrar sesión</a>
                 </div>
             </div>
-            <button onclick="document.body.classList.toggle('dark')" class="bg-[#06D6A0] text-white p-2 rounded-sm text-[16px] my-5 cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] dark:bg-[#048B67]">
-                <i class="fa-solid fa-moon fa-lg" style="color: #ffffff;"></i>
-            </button>
+            
         </div>
         
     </div>
 
     <div id="main" class="flex relative">
+        <!--
         <div id="sidebar" class="w-[20%] h-140.25 bg-[#F5F5F5] flex flex-col justify-between sticky top-[79.875px] z-50 dark:bg-[hsl(0,0%,10%)] dark:text-white">
-            <!-- Buttons on the sidebar --> 
+            /* Buttons on the sidebar */
              <div id="bsideCont" class="sideB flex flex-col">
                 <p>Saldo CivicaPay:</p>
                 <p id="saldoCivicaPay">$0</p>
@@ -84,10 +86,10 @@
                 <button class="boptions bg-[#06D6A0] p-3 rounded-sm cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] dark:bg-[#048B67]"><i class="fa-regular fa-circle-question fa-xl" style="color: rgb(255, 255, 255);"></i></button>
              </div>
         </div>
-        <div id="info" class="w-[80%] relative z-25">
-            <h1 id="bienvenida" class="m-5 text-4xl">Bienvenido de nuevo, [User]!</h1>
+        -->
 
-            <!-- La informacion como tal -->
+        <div id="info" class="relative z-25 w-full">
+            <h1 id="bienvenida" class="m-5 text-4xl">Bienvenido de nuevo, [User]!</h1>
 
             <div id="top" class="flex justify-between">
                 <div id="tleft" class="shadow-[10px_10px_50px_#F5F5F5] text-white rounded-xl m-5 h-85 w-[70%] bg-[url(/imgs/cityBG4.avif)] bg-no-repeat bg-cover dark:shadow-none">
@@ -107,6 +109,24 @@
                         </div> 
                     </div>
                 </div>
+
+                <div class="flex flex-col">
+                    <div id="tleft" class="shadow-[10px_10px_20px_#F5F5F5] rounded-xl h-65 dark:shadow-none border-2">
+                        <div id="saldoTitulo" class="flex justify-between items-baseline m-5">
+                            <p>Tu saldo CívicaPay</p>
+                            <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> Recargar</button>
+                        </div>
+                        <label id="saldo" class="font-bold font-[Raleway] text-4xl mx-5">$0</label>
+                    </div>
+                    <div class="flex justify-between">
+                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> 1</button>
+                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> 2</button>
+                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> 3</button>
+                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> 4</button>
+                    </div>
+                </div>
+
+                <!--
                 <div id="tright" class="w-[30%] flex flex-col">
                     <h2 class="text-xl">Operaciones</h2>
                     <button class="bg-[#06D6A0] text-[16px] p-4 text-left text-white cursor-pointer hover:bg-[#f5d34c] active:bg-[#F5F5F5] active:text-black dark:bg-[#048B67]">
@@ -123,14 +143,17 @@
                     </button>
                     <div id="ubicaciones" class="flex justify-between items-baseline p-4">
                         <p><i class="fa-solid fa-map-location" style="color: rgb(0, 0, 0);"></i> Planea:</p>
-                        <!-- Agregamos un form que será la barra de búsqueda de ubicaciones -->
+                        -- Agregamos un form que será la barra de búsqueda de ubicaciones --
                         <form>
                             <input type="text" placeholder="🔍 Buscar ubicaciones..." class="border border-mauve-600 rounded-sm text-sm">
                         </form>
                     </div>
                     <img src="/imgs/mapa.jpg" title="Elige tu ubicación" alt="Mapa metro" height="150px" width="150px">
                 </div>
+                -->
             </div>
+
+            <!--
             <div id="bottom" class="flex justify-between">
                 <div id="bleft" class="w-[70%] m-5 space-y-2">
                     <div id="movTitulo" class="flex justify-between items-center">
@@ -227,6 +250,9 @@
                     </button>
                 </div>
             </div>
+            -->
+
+            <!--
             <div id="ads" class="flex my-18 space-x-1 mx-5 overflow-x-scroll">
                 <img src="/imgs/metrooFondo.jpg">
                 <img src="/imgs/metrooFondo.jpg">
@@ -266,6 +292,7 @@
                     </div>
                 </div>
             </div>
+            -->
 
             <div id="footer" class="bg-[#06D6A0] flex flex-col items-center dark:bg-[#048B67]">
                 <div id="redes" class="text-center space-y-5 my-5">
@@ -301,7 +328,9 @@
 
         </div>
 
-        <!-- Ventana para recargar civica -->
+
+        <!--
+         Ventana para recargar civica
         <div id="fondoventanaRecarga" class="w-full h-full bg-[#0000004d] fixed top-0 left-0 z-100 flex justify-center items-center hidden">
             <div id="ventanaRecarga" class="bg-white h-120 w-100 flex flex-col justify-center space-y-10 rounded-2xl shadow-lg z-50 p-4 dark:bg-[hsl(0,0%,16%)]">
                 <p id="advertenciaRecarga" class="text-red-600"></p>
@@ -337,8 +366,12 @@
 
             </div>
         </div>
+        -->
+
 
         <!-- Ventana para recargar CivicaPay -->
+
+        <!--
         <div id="fondoCivicaPay" class="w-full h-full bg-[#0000004d] fixed top-0 left-0 z-100 flex justify-center items-center hidden">
             <div id="ventanaRecargaCPay" class="bg-white flex flex-col justify-center space-y-10 rounded-2xl shadow-lg z-50 p-4 dark:bg-[hsl(0,0%,16%)]">
                 <p id="advertenciaCivPay" class="text-red-600"></p>
@@ -390,6 +423,7 @@
 
             </div>
         </div>
+        -->
         
     </div>
 
