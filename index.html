@@ -95,7 +95,7 @@
                 <div id="tleft" class="shadow-[10px_10px_50px_#F5F5F5] text-white rounded-xl m-5 h-85 w-[70%] bg-[url(/imgs/cityBG4.avif)] bg-no-repeat bg-cover dark:shadow-none">
                     <div id="saldoTitulo" class="flex justify-between items-baseline m-5">
                         <p>Tu saldo targeta cívica</p>
-                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> Recargar</button>
+                        <button onclick="abrirVentanaRecargaCivica()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> Recargar</button>
                     </div>
                     <label id="saldo" class="font-bold font-[Raleway] text-4xl mx-5">$0</label>
                     <div id="adicional" class="flex justify-between m-[100px_20px_0px_20px]">
@@ -111,18 +111,18 @@
                 </div>
 
                 <div class="flex flex-col">
-                    <div id="tleft" class="shadow-[10px_10px_20px_#F5F5F5] rounded-xl h-65 dark:shadow-none border-2">
+                    <div id="tleft" class="shadow-[10px_10px_20px_#F5F5F5] my-5 rounded-xl h-65 dark:shadow-none border-2">
                         <div id="saldoTitulo" class="flex justify-between items-baseline m-5">
                             <p>Tu saldo CívicaPay</p>
-                            <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> Recargar</button>
+                            <button onclick="abrirVentanaRecargaCivicaPay()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> Recargar</button>
                         </div>
                         <label id="saldo" class="font-bold font-[Raleway] text-4xl mx-5">$0</label>
                     </div>
                     <div class="flex justify-between">
-                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> 1</button>
-                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> 2</button>
-                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> 3</button>
-                        <button onclick="mostrarVentanaRecargas()" class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-arrow-right-to-bracket" style="color: rgb(0, 0, 0);"></i> 4</button>
+                        <button class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-hand-holding-dollar fa-xl text-black dark:text-white"></i> Pasar plata</button>
+                        <button class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-money-bills fa-xl text-black dark:text-white"></i> Hacer pagos</button>
+                        <button class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-mobile-screen-button fa-xl text-black dark:text-white"></i> Recargar celular</button>
+                        <button class="bg-[#f5d34c] text-black cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-white active:bg-[#F5F5F5]"><i class="fa-solid fa-money-bill-transfer fa-xl text-black dark:text-white"></i> Sacar plata</button>
                     </div>
                 </div>
 
@@ -313,8 +313,172 @@
 
         </div>
 
-        <!-- Ventana para recargar Cívica -->
-        <div class="flex flex-col items-center mt-100 border-2 space-y-8 py-8 bg-white">
+        <!-- Ventana para Pasar Plata -->
+        <div class="hidden flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
+            <div class="flex justify-end">
+                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
+                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
+                </div>
+            </div>
+            <div class="space-y-3 w-100">
+                <div class="flex flex-col space-y-1">
+                    <label for="valorRecCivicaPay">¿A quién vas a pasar la plata?</label>
+                    <input type="number" id="valorRecCivicaPay" placeholder="Número celular" class="border rounded-md px-1">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="valorRecCivicaPay">¿Cuánta plata quieres pasar?</label>
+                    <select id="bancoCivicaPay" class="border rounded-md">
+                        <option>---</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                    <input type="number" id="valorRecCivicaPay" placeholder="Ingresa otro valor" class="border rounded-md px-1 mt-2">
+                </div>
+            </div>
+            <div>
+                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Pasar plata</button>
+            </div>
+        </div>
+
+        <!-- Ventana para Sacar Plata -->
+        <div class="hidden flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
+            <div class="flex justify-end">
+                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
+                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
+                </div>
+            </div>
+            <div class="space-y-3 w-100">
+                <div class="flex flex-col space-y-1">
+                    <label for="valorRecCivicaPay">¿Cuánta plata quieres sacar?</label>
+                    <select id="bancoCivicaPay" class="border rounded-md">
+                        <option>---</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                    <input type="number" id="valorRecCivicaPay" placeholder="Ingresa otro valor" class="border rounded-md px-1 mt-2">
+                </div>
+            </div>
+            <div>
+                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Sacar plata</button>
+            </div>
+        </div>
+
+        <!-- Ventana código de saguridad -->
+        <div class="hidden flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
+            <div class="flex justify-end">
+                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
+                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
+                </div>
+            </div>
+            <div class="w-100 text-center space-y-6">
+                <h1>Tu código de seguridad es:</h1>
+                <h1 class="text-6xl font-bold">XXXXXX</h1>
+                <h1>El código caduca en MM:SS</h1>
+            </div>
+        </div>
+
+        <!-- Ventana para Recargar Celular (Elegir operador) -->
+        <div class="hidden flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
+            <div class="flex justify-end">
+                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
+                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
+                </div>
+            </div>
+            <div>
+                <label for="valorRecCivicaPay">Elige tu operador de celular</label>
+            </div>
+            <div class="grid grid-cols-3 grid-rows-2 gap-5">
+                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
+                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
+                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
+                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
+                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
+                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
+            </div>
+            <div>
+                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Ventana para Recargar celular -->
+        <div class="hidden flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
+            <div class="flex justify-end">
+                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
+                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
+                </div>
+            </div>
+            <div class="flex justify-between w-100">
+                <h1>Operador</h1>
+                <div class="flex justify-between space-x-2">
+                    <h1>[Operador]</h1>
+                    <h1>Logo</h1>
+                </div>
+            </div>
+            <div class="space-y-3 w-100">
+                <div class="flex flex-col space-y-1">
+                    <label for="valorRecCivicaPay">Ingresa el número de celular</label>
+                    <input type="number" id="valorRecCivicaPay" class="border rounded-md px-1">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="valorRecCivicaPay">¿Cuánto quieres recargar?</label>
+                    <select id="bancoCivicaPay" class="border rounded-md">
+                        <option>---</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                    <input type="number" id="valorRecCivicaPay" placeholder="Ingresa otro valor" class="border rounded-md px-1 mt-2">
+                </div>
+            </div>
+            <div>
+                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Recargar</button>
+            </div>
+        </div>
+
+        <!-- Ventana para Hacer Pagos -->
+        <div class="hidden flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
+            <div class="flex justify-end">
+                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
+                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
+                </div>
+            </div>
+            <div class="space-y-3 w-100">
+                <div class="flex flex-col space-y-1">
+                    <label for="valorRecCivicaPay">Encuentra tu pago</label>
+                    <input type="number" id="valorRecCivicaPay" placeholder="Buscar empresa o servicio" class="border rounded-md px-1 mt-2">
+                </div>
+                <div class="flex justify-between">
+                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">1</button>
+                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">2</button>
+                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">3</button>
+                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">4</button>
+                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">5</button>
+                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">6</button>
+                </div>
+            </div>
+            <div>
+                <h1>Servicio 1</h1>
+                <h1>Servicio 2</h1>
+                <h1>Servicio 3</h1>
+                <h1>Servicio 4</h1>
+                <h1>Servicio 5</h1>
+            </div>
+            <div class="flex justify-between w-100">
+                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Favoritos</button>
+                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Recientes</button>
+            </div>
+            <div>
+                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Sacar plata</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Ventana para recargar Cívica -->
+    <div id="recargarCivica" class="hidden fixed inset-0 size-full bg-black/50 flex items-center justify-center z-50">
+        <div class="flex flex-col items-center border-2 rounded-lg space-y-8 p-8 bg-white shadow-lg">
             <div class="flex space-x-4">
                 <div class="size-10 bg-[#06D6A0]"></div>
                 <h1 class="text-5xl font-bold">Recargar Cívica</h1>
@@ -339,13 +503,15 @@
                 </div>
             </div>
             <div class="space-x-12">
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Cancelar</button>
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Recargar</button>
+                <button onclick="cerrarVentanaRecargaCivica()" class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Cancelar</button>
+                <button onclick="abrirVentanaRecargaExitosa()" class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Recargar</button>
             </div>
         </div>
+    </div>
 
+    <div id="recargarCivicaPay" class="hidden fixed inset-0 size-full bg-black/50 flex items-center justify-center z-50">
         <!-- Ventana para recargar CívicaPay -->
-        <div class="flex flex-col items-center mt-20 border-2 space-y-8 py-8 bg-white">
+        <div class="flex flex-col items-center border-2 rounded-lg space-y-8 p-8 bg-white shadow-lg">
             <div class="flex space-x-4">
                 <div class="size-10 bg-[#06D6A0]"></div>
                 <h1 class="text-4xl font-bold">Recargar CívicaPay</h1>
@@ -387,181 +553,23 @@
                 </div>
             </div>
             <div class="space-x-12">
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Cancelar</button>
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Recargar</button>
+                <button onclick="cerrarVentanaRecargaCivicaPay()" class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Cancelar</button>
+                <button onclick="abrirVentanaRecargaExitosa()" class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Recargar</button>
             </div>
         </div>
+    </div>
 
+    <div id="recargaExitosa" class="hidden fixed inset-0 size-full bg-black/50 flex items-center justify-center z-50">
         <!-- Ventana de recarga con exito -->
-        <div class="flex flex-col items-center border-2 bg-white space-y-4 py-8 mt-12">
+        <div class="flex flex-col items-center border-2 bg-white space-y-4 p-8 rounded-lg shadow-lg">
             <div class="flex justify-center items-center rounded-full size-32 bg-[#06D6A0]">
                 <img src="/imgs/check.svg" alt="Recarga exitosa!" class="size-20">
             </div>
             <h1 class="text-3xl font-bold">La recarga fue exitosa!</h1>
         </div>
-
-        <!-- Ventana para Pasar Plata -->
-        <div class="flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
-            <div class="flex justify-end">
-                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
-                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
-                </div>
-            </div>
-            <div class="space-y-3 w-100">
-                <div class="flex flex-col space-y-1">
-                    <label for="valorRecCivicaPay">¿A quién vas a pasar la plata?</label>
-                    <input type="number" id="valorRecCivicaPay" placeholder="Número celular" class="border rounded-md px-1">
-                </div>
-                <div class="flex flex-col space-y-1">
-                    <label for="valorRecCivicaPay">¿Cuánta plata quieres pasar?</label>
-                    <select id="bancoCivicaPay" class="border rounded-md">
-                        <option>---</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                    <input type="number" id="valorRecCivicaPay" placeholder="Ingresa otro valor" class="border rounded-md px-1 mt-2">
-                </div>
-            </div>
-            <div>
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Pasar plata</button>
-            </div>
-        </div>
-
-        <!-- Ventana para Sacar Plata -->
-        <div class="flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
-            <div class="flex justify-end">
-                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
-                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
-                </div>
-            </div>
-            <div class="space-y-3 w-100">
-                <div class="flex flex-col space-y-1">
-                    <label for="valorRecCivicaPay">¿Cuánta plata quieres sacar?</label>
-                    <select id="bancoCivicaPay" class="border rounded-md">
-                        <option>---</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                    <input type="number" id="valorRecCivicaPay" placeholder="Ingresa otro valor" class="border rounded-md px-1 mt-2">
-                </div>
-            </div>
-            <div>
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Sacar plata</button>
-            </div>
-        </div>
-
-        <!-- Ventana código de saguridad -->
-        <div class="flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
-            <div class="flex justify-end">
-                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
-                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
-                </div>
-            </div>
-            <div class="w-100 text-center space-y-6">
-                <h1>Tu código de seguridad es:</h1>
-                <h1 class="text-6xl font-bold">XXXXXX</h1>
-                <h1>El código caduca en MM:SS</h1>
-            </div>
-        </div>
-
-        <!-- Ventana para Recargar Celular (Elegir operador) -->
-        <div class="flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
-            <div class="flex justify-end">
-                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
-                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
-                </div>
-            </div>
-            <div>
-                <label for="valorRecCivicaPay">Elige tu operador de celular</label>
-            </div>
-            <div class="grid grid-cols-3 grid-rows-2 gap-5">
-                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
-                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
-                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
-                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
-                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
-                <div class="bg-amber-400 w-42 h-24 rounded-md"></div>
-            </div>
-            <div>
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Continuar</button>
-            </div>
-        </div>
-
-        <!-- Ventana para Recargar celular -->
-        <div class="flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
-            <div class="flex justify-end">
-                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
-                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
-                </div>
-            </div>
-            <div class="flex justify-between w-100">
-                <h1>Operador</h1>
-                <div class="flex justify-between space-x-2">
-                    <h1>[Operador]</h1>
-                    <h1>Logo</h1>
-                </div>
-            </div>
-            <div class="space-y-3 w-100">
-                <div class="flex flex-col space-y-1">
-                    <label for="valorRecCivicaPay">Ingresa el número de celular</label>
-                    <input type="number" id="valorRecCivicaPay" class="border rounded-md px-1">
-                </div>
-                <div class="flex flex-col space-y-1">
-                    <label for="valorRecCivicaPay">¿Cuánto quieres recargar?</label>
-                    <select id="bancoCivicaPay" class="border rounded-md">
-                        <option>---</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                    <input type="number" id="valorRecCivicaPay" placeholder="Ingresa otro valor" class="border rounded-md px-1 mt-2">
-                </div>
-            </div>
-            <div>
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Recargar</button>
-            </div>
-        </div>
-
-        <!-- Ventana para Hacer Pagos -->
-        <div class="flex flex-col items-center space-y-5 py-8 bg-white mt-20 border-2">
-            <div class="flex justify-end">
-                <div class="bg-[#EF5B5B] size-6 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#C43C3C]">
-                    <img src="/imgs/close.svg" alt="Cerrar" class="size-4">
-                </div>
-            </div>
-            <div class="space-y-3 w-100">
-                <div class="flex flex-col space-y-1">
-                    <label for="valorRecCivicaPay">Encuentra tu pago</label>
-                    <input type="number" id="valorRecCivicaPay" placeholder="Buscar empresa o servicio" class="border rounded-md px-1 mt-2">
-                </div>
-                <div class="flex justify-between">
-                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">1</button>
-                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">2</button>
-                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">3</button>
-                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">4</button>
-                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">5</button>
-                    <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[12px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">6</button>
-                </div>
-            </div>
-            <div>
-                <h1>Servicio 1</h1>
-                <h1>Servicio 2</h1>
-                <h1>Servicio 3</h1>
-                <h1>Servicio 4</h1>
-                <h1>Servicio 5</h1>
-            </div>
-            <div class="flex justify-between w-100">
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Favoritos</button>
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Recientes</button>
-            </div>
-            <div>
-                <button class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Sacar plata</button>
-            </div>
-        </div>
-
     </div>
+
+
 
     <script src="index.js"></script>
 </body>
