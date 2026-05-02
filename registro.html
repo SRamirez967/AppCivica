@@ -5,80 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro App Cívica</title>
     <link href="./output.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
-<body class="border-2 border-amber-500 h-screen flex flex-col justify-center items-center space-x-8">
-    <div>
-        <button id="ventanaRegistrarse" class="px-3 py-2 border-b-2 border-[#06D6A0]">Registrate</button>
-        <button id="ventanaIngresar" class="px-3 py-2">Ingresar</button>
+<body class="font-[Inter] h-screen flex flex-col justify-center items-center space-x-8 bg-[url(/imgs/fondo2.avif)] bg-center bg-no-repeat bg-cover">
+    <div class="flex space-x-6 text-amber-50">
+        <div class="size-20 bg-amber-300"></div>
+        <h1 class="text-7xl font-bold">APLICACION</h1>
     </div>
-    <div class="px-24 py-16 shadow-lg w-95 h-122">
-        
-        <div class="flex">
-            <form id="registro" class="space-y-3">
-                <div class="flex flex-col">
-                    <label>Nombre completo</label>
-                    <input type="text" class="border-2 rounded-sm">
-                </div>
 
-                <div class="flex flex-col">
-                    <label>Tipo de documento</label>
-                    <select id="tipoDocumento" class="border-2 rounded-sm">
-                        <option value="">Seleccionar documento</option>
-                        <option value="cedulaC">Cédula de ciudadanía</option>
-                        <option value="cedulaE">Cédula extranjera</option>
-                        <option value="tarjetaI">Tarjeta de identidad</option>
+    <div class="w-112.25 flex justify-between text-amber-50">
+        <button id="botonRegistrarse" class="px-3 py-2 cursor-pointer font-bold border-b-2 border-[#06D6A0]">Registrarse</button>
+        <button id="botonIngresar" class="px-3 py-2 cursor-pointer">Ingresar</button>
+    </div>
+       
+    <div class="flex">       
+        <div id="ventanaRegistro" class="relative top-0 flex flex-col items-center rounded-lg space-y-8 p-8 bg-white shadow-lg h-116 w-112.25">
+            <div class="space-y-3 w-100">
+                <div class="flex flex-col space-y-1">
+                    <label for="nombre_usuario">Nombre completo</label>
+                    <input id="nombre_usuario" class="border rounded-md">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="tipo_doc_registro">Tipo de documento</label>
+                    <select id="tipo_doc_registro" class="border rounded-md">
+                        <option value="">---</option>
+                        <option value="tarjeta_identidad">Tarjeta de Identidad</option>
+                        <option value="cedula_ciudadania">Cédula de ciudadanía</option>
+                        <option value="cedula_extranjer">Cédula extranjera</option>
                     </select>
                 </div>
-
-                <div class="flex flex-col">
-                    <label>Número de documento</label>
-                    <input type="number" class="border-2 rounded-sm">
+                <div class="flex flex-col space-y-1">
+                    <label for="num_doc_registro">Número de documento</label>
+                    <input type="number" id="num_doc_registro" class="border rounded-md">
                 </div>
-
-                <div class="flex flex-col">
-                    <label>Correo electrónico</label>
-                    <input type="email" class="border-2 rounded-sm">
+                <div class="flex flex-col space-y-1">
+                    <label for="correo_registro">Correo electrónico</label>
+                    <input type="email" id="correo_registro" class="border rounded-md">
                 </div>
-
-                <!-- Podemos pedir primero que se registre el correo con un coódigo -->
-                <div class="flex flex-col">
-                    <label>Crea una clave</label>
-                    <input type="password" class="border-2 rounded-sm">
+                <div class="flex flex-col space-y-1">
+                    <label for="clave_registro">Crea una clave (4 dígitos)</label>
+                    <input type="number" id="clave_registro" class="border rounded-md">
                 </div>
-
-                <div class="text-center">
-                    <button type="submit" class="bg-[#06D6A0] px-3 py-2 rounded-md"><a href="/index.html">Registarse</a></button>
-                </div>
-
-            </form>
-        
-            <form id="ingreso" class="space-y-3 hidden">
-                <div class="flex flex-col">
-                    <label>Tipo de documento</label>
-                    <select id="tipoDocumento" class="border-2 rounded-sm">
-                        <option value="">Seleccionar documento</option>
-                        <option value="cedulaC">Cédula de ciudadanía</option>
-                        <option value="cedulaE">Cédula extranjera</option>
-                        <option value="tarjetaI">Tarjeta de identidad</option>
-                    </select>
-                </div>
-
-                <div class="flex flex-col">
-                    <label>Número de documento</label>
-                    <input type="number" class="border-2 rounded-sm">
-                </div>
-
-                <div class="flex flex-col">
-                    <label>Ingresa tu clave</label>
-                    <input type="password" class="border-2 rounded-sm">
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="bg-[#06D6A0] px-3 py-2 rounded-md">Ingresar</button>
-                </div>
-            </form>
+            </div>
+            <div id="contenedor_advertencia_registro" class="contenedor_advertencia hidden bg-black/70 text-center text-2xl text-amber-50 absolute bottom-1/2 w-full">
+                <h1 id="mensaje_advertencia_registro"></h1>
+            </div>
+            <div class="space-x-12">
+                <button onclick="registrarse()" class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Registrarse</button>
+            </div>
         </div>
+                    
+        <div id="ventanaIngreso" class="relative top-0 hidden flex flex-col items-center justify-center rounded-lg space-y-8 p-8 bg-white shadow-lg h-116 w-112.25">
+            <div class="space-y-5 w-100">
+                <div class="flex flex-col space-y-1">
+                    <label for="tipo_doc_ingreso">Tipo de documento</label>
+                    <select id="tipo_doc_ingreso" class="border rounded-md">
+                        <option value="">---</option>
+                        <option value="tarjeta_identidad">Tarjeta de Identidad</option>
+                        <option value="cedula_ciudadania">Cédula de ciudadanía</option>
+                        <option value="cedula_extranjer">Cédula extranjera</option>
+                    </select>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="num_doc_ingreso">Número de documento</label>
+                    <input type="number" id="num_doc_ingreso" class="border rounded-md">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="clave_ingreso">Ingresa tu clave (4 dígitos)</label>
+                    <input type="number" id="clave_ingreso" class="border rounded-md">
+                </div>
+            </div>
+            <div id="contenedor_advertencia_ingreso" class="contenedor_advertencia hidden bg-black/70 text-center text-2xl text-amber-50 absolute bottom-1/2 w-full">
+                <h1 id="mensaje_advertencia_ingreso"></h1>
+            </div>
+            <div class="space-x-12">
+                <button onclick="ingresar()" class="bg-[#06D6A0] text-white cursor-pointer py-2 px-3 rounded-sm text-[16px] hover:bg-[#06a87d] active:bg-[#F5F5F5]">Ingresar</button>
+            </div>
+        </div>
+        
     </div>
+    
 
     <script src="registro.js"></script>
 </body>
